@@ -1,19 +1,18 @@
-## Foundry
+# Exchanger Project Documentation
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Introduction
 
-Foundry consists of:
+The Exchanger project provides a decentralized platform for exchanging ERC-20 tokens and native currency. It also includes a vault system for securely storing tokens and native currency.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Installation and Usage
 
-## Documentation
+### Clone and install requirements
 
-https://book.getfoundry.sh/
-
-## Usage
+```shell
+$ git clone 
+$ cd 
+$ forge install OpenZeppelin/openzeppelin-contracts --no-commit
+```
 
 ### Build
 
@@ -27,40 +26,25 @@ $ forge build
 $ forge test
 ```
 
-### Format
+## Contracts Overview
 
-```shell
-$ forge fmt
-```
+### Exchanger.sol
+The `Exchanger` contract provides the core functionality for exchanging tokens and native currency. It uses a whitelist system to set exchange rates for specific tokens.
 
-### Gas Snapshots
+**Key Features:**
 
-```shell
-$ forge snapshot
-```
+- Set and remove exchange rates for tokens.
+- Execute exchanges between tokens and native currency.
+- Withdraw tokens.
+- Calculate fees for exchanges.
+- Get exchange rates and other contract details.
 
-### Anvil
+### Vault.sol
 
-```shell
-$ anvil
-```
+The `Vault` contract allows for depositing and withdrawing of ERC-20 tokens and native ether. It also mints NFT receipts for each deposit.
 
-### Deploy
+**Key Features:**
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+- Deposit ERC-20 tokens and native ether.
+- Withdraw ERC-20 tokens and native ether.
+- Mint NFT receipts for deposits.
